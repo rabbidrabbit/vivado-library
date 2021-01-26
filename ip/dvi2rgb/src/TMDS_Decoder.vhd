@@ -64,7 +64,9 @@ entity TMDS_Decoder is
       kTimeoutMs : natural := 50; --what is the maximum time interval for a blank to be detected
       kRefClkFrqMHz : natural := 200; --what is the RefClk frequency
       kIDLY_TapValuePs : natural := 78; --delay in ps per tap
-      kIDLY_TapWidth : natural := 5); --number of bits for IDELAYE2 tap counter
+      kIDLY_TapWidth : natural := 5; --number of bits for IDELAYE2 tap counter
+      kSwap : boolean := false  -- P/N Swap Options
+   );
    Port (
       PixelClk : in std_logic;   --Recovered TMDS clock x1 (CLKDIV)
       SerialClk : in std_logic;  --Recovered TMDS clock x5 (CLK)
@@ -101,7 +103,7 @@ signal pAlignRst, pLockLostRst_n : std_logic;
 signal pBitslipCnt : natural range 0 to kBitslipDelay - 1 := kBitslipDelay - 1; 
 signal pDataIn8b : std_logic_vector(7 downto 0);
 signal pDataInBnd : std_logic_vector(9 downto 0);
-signal pDataInRaw : std_logic_vector(9 downto 0);
+signal pDataInRaw, pDataInRaw_q : std_logic_vector(9 downto 0);
 signal pMeRdy_int, pAligned, pAlignErr_int, pAlignErr_q, pBitslip : std_logic;
 signal pIDLY_LD, pIDLY_CE, pIDLY_INC : std_logic;
 signal pIDLY_CNT : std_logic_vector(kIDLY_TapWidth-1 downto 0);
@@ -140,6 +142,14 @@ InputSERDES_X: entity work.InputSERDES
    );
 -- reset min two period (ISERDESE2 requirement)
 -- de-assert synchronously with CLKDIV, min two period (ISERDESE2 requirement)
+
+-- Swap each bit
+D0_direct: if kSwap = false generate
+    pDataInRaw_q <= pDataInRaw;
+end generate;
+D0_reverse: if kSwap = true generate
+    pDataInRaw_q <= not pDataInRaw;
+end generate;
 
 --The timeout counter runs on RefClk, because it's a fixed frequency we can measure timeout
 --independently of the TMDS Clk
@@ -193,7 +203,7 @@ PhaseAlignX: entity work.PhaseAlign
       PixelClk => PixelClk,
       pTimeoutOvf => pTimeoutOvf,
       pTimeoutRst => pTimeoutRst,
-      pData => pDataInRaw,
+      pData => pDataInRaw_q,
       pIDLY_CE => pIDLY_CE,
       pIDLY_INC => pIDLY_INC,
       pIDLY_CNT => pIDLY_CNT,
@@ -242,7 +252,7 @@ end process BitslipDelay;
 ChannelBondX: entity work.ChannelBond
    port map (
       PixelClk => PixelClk,
-      pDataInRaw => pDataInRaw,
+      pDataInRaw => pDataInRaw_q,
       pMeVld => pAligned,
       pOtherChVld => pOtherChVld,
       pOtherChRdy => pOtherChRdy,      

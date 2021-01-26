@@ -63,12 +63,16 @@ use work.DVI_Constants.all;
 
 entity dvi2rgb is
    Generic (
+      kD0Swap : boolean := false;  -- P/N Swap Options
+      kD1Swap : boolean := false;
+      kD2Swap : boolean := false;
+      kClkSwap : boolean := false; 
       kEmulateDDC : boolean := true; --will emulate a DDC EEPROM with basic EDID, if set to yes 
       kRstActiveHigh : boolean := true; --true, if active-high; false, if active-low
       kAddBUFG : boolean := true; --true, if PixelClk should be re-buffered with BUFG 
       kClkRange : natural := 2;  -- MULT_F = kClkRange*5 (choose >=120MHz=1, >=60MHz=2, >=40MHz=3)
       kEdidFileName : string := "dgl_720p_cea.data";  -- Select EDID file to use
-      kDebug : boolean := true;
+      kDebug : boolean := true;      
       -- 7-series specific
       kIDLY_TapValuePs : natural := 78; --delay in ps per tap
       kIDLY_TapWidth : natural := 5); --number of bits for IDELAYE2 tap counter   
@@ -144,7 +148,7 @@ PORT (
 );
 END COMPONENT  ;
 
-
+type arrbool_t is array (2 downto 0) of boolean;
 type dataIn_t is array (2 downto 0) of std_logic_vector(7 downto 0);
 type eyeSize_t is array (2 downto 0) of std_logic_vector(kIDLY_TapWidth-1 downto 0);
 signal aLocked, SerialClk_int, PixelClk_int, pLockLostRst: std_logic;
@@ -166,7 +170,7 @@ signal dbg_pAlignErr, dbg_pBitslip : std_logic_vector(2 downto 0);
 signal dbg_pEyeSize : eyeSize_t;
 
 signal pTrigOut, pTrigOutAck, rTrigOutAck, rTrigOut : std_logic;
-
+constant kSwaps : arrbool_t := (2=>kD2Swap, 1=>kD1Swap, 0=>kD0Swap);
 begin
 
 ResetActiveLow: if not kRstActiveHigh generate
@@ -180,9 +184,12 @@ ResetActiveHigh: if kRstActiveHigh generate
 end generate ResetActiveHigh;
 
 -- Clocking infrastructure to obtain a usable fast serial clock and a slow parallel clock
+-- kClkSwap is not implemented in any way; An inverted TMDS clock is compensated by
+-- the channel alignment circuitry below
 TMDS_ClockingX: entity work.TMDS_Clocking
    generic map (
-      kClkRange => kClkRange)
+      kClkRange => kClkRange
+   )
    port map (
       aRst       => aRst_int, 
       RefClk     => RefClk,
@@ -232,7 +239,9 @@ DataDecoders: for iCh in 2 downto 0 generate
          kTimeoutMs => kBlankTimeoutMs, --what is the maximum time interval for a blank to be detected (DVI spec)
          kRefClkFrqMHz => 200, --what is the RefClk frequency
          kIDLY_TapValuePs => kIDLY_TapValuePs, --delay in ps per tap
-         kIDLY_TapWidth => kIDLY_TapWidth) --number of bits for IDELAYE2 tap counter   
+         kIDLY_TapWidth => kIDLY_TapWidth, --number of bits for IDELAYE2 tap counter
+         kSwap => kSwaps(iCh) -- P/N Swap Options
+      )   
       port map (
          aRst                    => pLockLostRst,               
          PixelClk                => PixelClk_int,
