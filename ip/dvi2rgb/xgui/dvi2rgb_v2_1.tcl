@@ -5,6 +5,21 @@ source [file join [file dirname [file dirname [info script]]] gui/dvi2rgb_v1_0.g
 # Definitional proc to organize widgets for parameters.
 proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "Component_Name"
+  ipgui::add_param $IPINST -name "kEmulateDDC"
+  ipgui::add_param $IPINST -name "kEnableSerialClkOutput"
+  ipgui::add_param $IPINST -name "kRstActiveHigh"
+  ipgui::add_param $IPINST -name "kDebug"
+  ipgui::add_param $IPINST -name "kClkRange"
+  ipgui::add_param $IPINST -name "kAddBUFG"
+  ipgui::add_param $IPINST -name "kEdidFileName"
+  #Adding Group
+  set Invert_TMDS_Lanes [ipgui::add_group $IPINST -name "Invert TMDS Lanes" -layout horizontal]
+  set_property tooltip {Use the tickboxes below to invert data or clock lanes independently on boards with the P and N sides of the pair swapped.} ${Invert_TMDS_Lanes}
+  ipgui::add_param $IPINST -name "kD0Swap" -parent ${Invert_TMDS_Lanes}
+  ipgui::add_param $IPINST -name "kD1Swap" -parent ${Invert_TMDS_Lanes}
+  ipgui::add_param $IPINST -name "kD2Swap" -parent ${Invert_TMDS_Lanes}
+  ipgui::add_param $IPINST -name "kClkSwap" -parent ${Invert_TMDS_Lanes}
+
 
 }
 
