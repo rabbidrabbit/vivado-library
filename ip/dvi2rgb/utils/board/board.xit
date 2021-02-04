@@ -1,0 +1,37 @@
+package require xilinx::board 1.0
+namespace import ::xilinx::board::*
+
+# Create board flow constraints file
+set instname [current_inst]
+set f_xdc [add_ipfile -usedIn  [list synthesis implementation board ] -force ${instname}_board.xdc]
+puts_ipfile $f_xdc "#--------------------Physical Constraints-----------------\n"
+if { [get_project_property BOARD] == "" } {
+	puts_ipfile $f_xdc "#BOARD property empty\n"
+    close_ipfile $f_xdc
+    return 
+}
+
+set board_if [get_property PARAM_VALUE.TMDS_BOARD_INTERFACE]
+puts_ipfile $f_xdc "#$board_if\n"
+if { $board_if ne "Custom"} {
+# board_add_port_constraints file	bif_name  logical_port	physical_port bus_width
+  board_add_port_constraints $f_xdc $board_if CLK_P TMDS_Clk_p 1
+  board_add_port_constraints $f_xdc $board_if CLK_N TMDS_Clk_n 1
+  board_add_port_constraints $f_xdc $board_if DATA_P TMDS_Data_p 3
+  board_add_port_constraints $f_xdc $board_if DATA_N TMDS_Data_n 3
+}
+
+set board_if [get_property PARAM_VALUE.IIC_BOARD_INTERFACE]
+puts_ipfile $f_xdc "#$board_if\n"
+if { $board_if ne "Custom"} {
+  board_add_tri_state_port_constraints $f_xdc $board_if \
+	SCL_O SCL_O \
+	SCL_I SCL_I \
+	SCL_T SCL_T
+  board_add_tri_state_port_constraints $f_xdc $board_if \
+	SDA_O SDA_O \
+	SDA_I SDA_I \
+	SDA_T SDA_T
+}
+
+close_ipfile $f_xdc

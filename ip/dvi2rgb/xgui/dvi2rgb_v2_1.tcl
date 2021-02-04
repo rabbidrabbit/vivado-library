@@ -1,19 +1,45 @@
+package require xilinx::board 1.0
+namespace import ::xilinx::board::*
+
+set tmds_vlvn "digilentinc.com:interface:tmds:1.0"
+set iic_vlvn "xilinx.com:interface:iic_rtl:1.0"
+
+# Function getting board presets for present IP and specified interface
+proc init_params {IPINST PARAM_VALUE.TMDS_BOARD_INTERFACE PARAM_VALUE.IIC_BOARD_INTERFACE} {
+  set_property preset_proc "TMDS_BOARD_INTERFACE_PRESET" ${PARAM_VALUE.TMDS_BOARD_INTERFACE}
+}
+
+# TODO: Maybe TMDS lane inversion is a good candidate?
+proc TMDS_BOARD_INTERFACE_PRESET {IPINST PRESET_VALUE} {
+  if { $PRESET_VALUE == "Custom" } {
+    return ""
+  }
+  set board [::ipxit::get_project_property BOARD]
+  set vlnv [get_property ipdef $IPINST] 
+  set preset_params [board_ip_presets $vlnv $PRESET_VALUE $board "TMDS"]
+}
+
 
 # Loading additional proc with user specified bodies to compute parameter values.
 source [file join [file dirname [file dirname [info script]]] gui/dvi2rgb_v1_0.gtcl]
 
 # Definitional proc to organize widgets for parameters.
 proc init_gui { IPINST } {
-  ipgui::add_param $IPINST -name "Component_Name"
-  ipgui::add_param $IPINST -name "kEmulateDDC"
-  ipgui::add_param $IPINST -name "kEnableSerialClkOutput"
-  ipgui::add_param $IPINST -name "kRstActiveHigh"
-  ipgui::add_param $IPINST -name "kDebug"
-  ipgui::add_param $IPINST -name "kClkRange"
-  ipgui::add_param $IPINST -name "kAddBUFG"
-  ipgui::add_param $IPINST -name "kEdidFileName"
+
+  # Page 0: Board
+  add_board_tab $IPINST
+  
+  set Page1 [ ipgui::add_page $IPINST  -name "Settings" -layout vertical]
+  ipgui::add_param $IPINST -parent $Page1 -name "Component_Name"
+  ipgui::add_param $IPINST -parent $Page1 -name "kEmulateDDC"
+  ipgui::add_param $IPINST -parent $Page1 -name "kEnableSerialClkOutput"
+  ipgui::add_param $IPINST -parent $Page1 -name "kRstActiveHigh"
+  ipgui::add_param $IPINST -parent $Page1 -name "kDebug"
+  ipgui::add_param $IPINST -parent $Page1 -name "kClkRange"
+  ipgui::add_param $IPINST -parent $Page1 -name "kAddBUFG"
+  ipgui::add_param $IPINST -parent $Page1 -name "kEdidFileName"
   #Adding Group
-  set Invert_TMDS_Lanes [ipgui::add_group $IPINST -name "Invert TMDS Lanes" -layout horizontal]
+  set Invert_TMDS_Lanes [ipgui::add_group $IPINST -parent $Page1 -name "Invert TMDS Lanes" -layout horizontal]
   set_property tooltip {Use the tickboxes below to invert data or clock lanes independently on boards with the P and N sides of the pair swapped.} ${Invert_TMDS_Lanes}
   ipgui::add_param $IPINST -name "kD0Swap" -parent ${Invert_TMDS_Lanes}
   ipgui::add_param $IPINST -name "kD1Swap" -parent ${Invert_TMDS_Lanes}
@@ -21,6 +47,17 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "kClkSwap" -parent ${Invert_TMDS_Lanes}
 
 
+}
+
+proc update_gui_for_PARAM_VALUE.IIC_BOARD_INTERFACE { IPINST PARAM_VALUE.IIC_BOARD_INTERFACE PARAM_VALUE.kEmulateDDC } {
+  set kEmulateDDC_tooltip {Enable DDC ROM.}
+  set boardIfName [get_property value ${PARAM_VALUE.IIC_BOARD_INTERFACE}]
+  if { $boardIfName ne "Custom"} {
+    set board_tooltip "Defined by \"$boardIfName\" board interface, selected on the Board tab. Use \"Custom\" board interface for manual control."
+    set_property tooltip "$kEmulateDDC_tooltip $board_tooltip" [ipgui::get_guiparamspec kEmulateDDC -of $IPINST ]
+  } else {
+    set_property tooltip $kEmulateDDC_tooltip [ipgui::get_guiparamspec kEmulateDDC -of $IPINST ]
+  }
 }
 
 proc update_PARAM_VALUE.kEdidFileName { PARAM_VALUE.kEdidFileName PARAM_VALUE.kEmulateDDC } {
@@ -41,8 +78,28 @@ proc validate_PARAM_VALUE.kEdidFileName { PARAM_VALUE.kEdidFileName } {
 	return true
 }
 
-proc update_PARAM_VALUE.IIC_BOARD_INTERFACE { PARAM_VALUE.IIC_BOARD_INTERFACE } {
-	# Procedure called to update IIC_BOARD_INTERFACE when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.IIC_BOARD_INTERFACE {PARAM_VALUE.IIC_BOARD_INTERFACE PROJECT_PARAM.BOARD IPINST} {
+  upvar iic_vlvn iic_vlvn
+
+  set bif_string "Custom"
+  set bidir 0
+
+  if { [get_project_property BOARD] != "" } {
+	# Get all TMDS board interfaces
+    set board_if [get_board_part_interfaces -filter "VLNV==$iic_vlvn" ]
+    foreach item $board_if {
+      set tri_o [get_board_part_pins_of_intf_port $item TRI_O]
+      set tri_i [get_board_part_pins_of_intf_port $item TRI_I]
+      if { $bidir || (($tri_o ne "") ^ ($tri_i ne "")) } {
+        set bif_string "$bif_string,$item"
+      }
+    }
+  }  
+
+  set param_range [get_board_interface_param_range $IPINST -name "IIC_BOARD_INTERFACE"]
+  if {[llength [split $param_range ","]] > 1} {
+    set_property range $param_range ${PARAM_VALUE.IIC_BOARD_INTERFACE}
+  }
 }
 
 proc validate_PARAM_VALUE.IIC_BOARD_INTERFACE { PARAM_VALUE.IIC_BOARD_INTERFACE } {
@@ -50,8 +107,28 @@ proc validate_PARAM_VALUE.IIC_BOARD_INTERFACE { PARAM_VALUE.IIC_BOARD_INTERFACE 
 	return true
 }
 
-proc update_PARAM_VALUE.TMDS_BOARD_INTERFACE { PARAM_VALUE.TMDS_BOARD_INTERFACE } {
-	# Procedure called to update TMDS_BOARD_INTERFACE when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.TMDS_BOARD_INTERFACE {PARAM_VALUE.TMDS_BOARD_INTERFACE PROJECT_PARAM.BOARD IPINST} {
+  upvar tmds_vlvn tmds_vlvn
+
+  set bif_string "Custom"
+  set bidir 0
+
+  if { [get_project_property BOARD] != "" } {
+	# Get all TMDS board interfaces
+    set board_if [get_board_part_interfaces -filter "VLNV==$tmds_vlvn" ]
+    foreach item $board_if {
+      set tri_o [get_board_part_pins_of_intf_port $item TRI_O]
+      set tri_i [get_board_part_pins_of_intf_port $item TRI_I]
+      if { $bidir || (($tri_o ne "") ^ ($tri_i ne "")) } {
+        set bif_string "$bif_string,$item"
+      }
+    }
+  }  
+
+  set param_range [get_board_interface_param_range $IPINST -name "TMDS_BOARD_INTERFACE"]
+  if {[llength [split $param_range ","]] > 1} {
+    set_property range $param_range ${PARAM_VALUE.TMDS_BOARD_INTERFACE}
+  }
 }
 
 proc validate_PARAM_VALUE.TMDS_BOARD_INTERFACE { PARAM_VALUE.TMDS_BOARD_INTERFACE } {
@@ -140,8 +217,16 @@ proc validate_PARAM_VALUE.kRstActiveHigh { PARAM_VALUE.kRstActiveHigh } {
 	return true
 }
 
-proc update_PARAM_VALUE.kEmulateDDC { PARAM_VALUE.kEmulateDDC } {
-	# Procedure called to update kEmulateDDC when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.kEmulateDDC { PARAM_VALUE.IIC_BOARD_INTERFACE PARAM_VALUE.kEmulateDDC } {
+  # Procedure called to update kEmulateDDC when any of the dependent parameters in the arguments change
+  # If there is a board interface selected for DDC, option "Emulate DDC ROM" is automatically enabled.
+  set boardIfName [get_property value ${PARAM_VALUE.IIC_BOARD_INTERFACE}]
+  if { $boardIfName ne "Custom"} {
+    set_property enabled false ${PARAM_VALUE.kEmulateDDC}
+    set_property value 1 ${PARAM_VALUE.kEmulateDDC}
+  } else {
+    set_property enabled true ${PARAM_VALUE.kEmulateDDC}
+  }
 }
 
 proc validate_PARAM_VALUE.kEmulateDDC { PARAM_VALUE.kEmulateDDC } {
