@@ -1,7 +1,7 @@
 package require xilinx::board 1.0
 namespace import ::xilinx::board::*
 
-set tmds_vlvn "digilentinc.com:interface:tmds:1.0"
+set tmds_vlvn "digilentinc.com:interface:tmds_rtl:1.0"
 set iic_vlvn "xilinx.com:interface:iic_rtl:1.0"
 
 # Function getting board presets for present IP and specified interface
@@ -17,6 +17,11 @@ proc TMDS_BOARD_INTERFACE_PRESET {IPINST PRESET_VALUE} {
   set board [::ipxit::get_project_property BOARD]
   set vlnv [get_property ipdef $IPINST] 
   set preset_params [board_ip_presets $vlnv $PRESET_VALUE $board "TMDS"]
+  if { $preset_params != "" } {
+    return $preset_params
+  } else {
+    return ""
+  }
 }
 
 
@@ -26,11 +31,12 @@ source [file join [file dirname [file dirname [info script]]] gui/dvi2rgb_v1_0.g
 # Definitional proc to organize widgets for parameters.
 proc init_gui { IPINST } {
 
+  ipgui::add_param $IPINST -name "Component_Name"
+  
   # Page 0: Board
   add_board_tab $IPINST
   
   set Page1 [ ipgui::add_page $IPINST  -name "Settings" -layout vertical]
-  ipgui::add_param $IPINST -parent $Page1 -name "Component_Name"
   ipgui::add_param $IPINST -parent $Page1 -name "kEmulateDDC"
   ipgui::add_param $IPINST -parent $Page1 -name "kEnableSerialClkOutput"
   ipgui::add_param $IPINST -parent $Page1 -name "kRstActiveHigh"
@@ -79,27 +85,9 @@ proc validate_PARAM_VALUE.kEdidFileName { PARAM_VALUE.kEdidFileName } {
 }
 
 proc update_PARAM_VALUE.IIC_BOARD_INTERFACE {PARAM_VALUE.IIC_BOARD_INTERFACE PROJECT_PARAM.BOARD IPINST} {
-  upvar iic_vlvn iic_vlvn
-
-  set bif_string "Custom"
-  set bidir 0
-
-  if { [get_project_property BOARD] != "" } {
-	# Get all TMDS board interfaces
-    set board_if [get_board_part_interfaces -filter "VLNV==$iic_vlvn" ]
-    foreach item $board_if {
-      set tri_o [get_board_part_pins_of_intf_port $item TRI_O]
-      set tri_i [get_board_part_pins_of_intf_port $item TRI_I]
-      if { $bidir || (($tri_o ne "") ^ ($tri_i ne "")) } {
-        set bif_string "$bif_string,$item"
-      }
-    }
-  }  
-
-  set param_range [get_board_interface_param_range $IPINST -name "IIC_BOARD_INTERFACE"]
-  if {[llength [split $param_range ","]] > 1} {
-    set_property range $param_range ${PARAM_VALUE.IIC_BOARD_INTERFACE}
-  }
+	set param_range [get_board_interface_param_range $IPINST -name "IIC_BOARD_INTERFACE"]
+    dbg_brd_msg "IIC_BOARD_INTERFACE range: $param_range"
+	set_property range $param_range ${PARAM_VALUE.IIC_BOARD_INTERFACE}
 }
 
 proc validate_PARAM_VALUE.IIC_BOARD_INTERFACE { PARAM_VALUE.IIC_BOARD_INTERFACE } {
@@ -108,27 +96,9 @@ proc validate_PARAM_VALUE.IIC_BOARD_INTERFACE { PARAM_VALUE.IIC_BOARD_INTERFACE 
 }
 
 proc update_PARAM_VALUE.TMDS_BOARD_INTERFACE {PARAM_VALUE.TMDS_BOARD_INTERFACE PROJECT_PARAM.BOARD IPINST} {
-  upvar tmds_vlvn tmds_vlvn
-
-  set bif_string "Custom"
-  set bidir 0
-
-  if { [get_project_property BOARD] != "" } {
-	# Get all TMDS board interfaces
-    set board_if [get_board_part_interfaces -filter "VLNV==$tmds_vlvn" ]
-    foreach item $board_if {
-      set tri_o [get_board_part_pins_of_intf_port $item TRI_O]
-      set tri_i [get_board_part_pins_of_intf_port $item TRI_I]
-      if { $bidir || (($tri_o ne "") ^ ($tri_i ne "")) } {
-        set bif_string "$bif_string,$item"
-      }
-    }
-  }  
-
-  set param_range [get_board_interface_param_range $IPINST -name "TMDS_BOARD_INTERFACE"]
-  if {[llength [split $param_range ","]] > 1} {
-    set_property range $param_range ${PARAM_VALUE.TMDS_BOARD_INTERFACE}
-  }
+    set param_range [get_board_interface_param_range $IPINST -name "TMDS_BOARD_INTERFACE"]
+    dbg_brd_msg "TMDS_BOARD_INTERFACE range: $param_range"
+	set_property range $param_range ${PARAM_VALUE.TMDS_BOARD_INTERFACE}
 }
 
 proc validate_PARAM_VALUE.TMDS_BOARD_INTERFACE { PARAM_VALUE.TMDS_BOARD_INTERFACE } {
@@ -297,3 +267,12 @@ proc update_MODELPARAM_VALUE.kClkSwap { MODELPARAM_VALUE.kClkSwap PARAM_VALUE.kC
 	set_property value [get_property value ${PARAM_VALUE.kClkSwap}] ${MODELPARAM_VALUE.kClkSwap}
 }
 
+proc dbg_brd_msg { msg } {
+    set rand_id [expr {int(300 + rand() * 100)}]
+    send_msg INFO $rand_id "$msg"
+}
+
+proc dbg_msg { msg } {
+    set rand_id [expr {int(600 + rand() * 100)}]
+    send_msg INFO $rand_id "$msg"
+}
