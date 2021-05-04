@@ -2380,7 +2380,7 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>Pmod Bridge</xilinx:displayName>
+      <xilinx:displayName>Pmod Bridge v1.0</xilinx:displayName>
       <xilinx:coreRevision>16</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_concat:1.0</xilinx:canUpgradeFrom>
