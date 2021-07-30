@@ -12,6 +12,7 @@ RELEASEDIR=../../../lib
 INCLUDEDIR=../../../include
 INCLUDES=-I./. -I${INCLUDEDIR}
 
+<<<<<<< Updated upstream
 LIBSOURCES:=*.c
 INCLUDEFILES:=*.h
 
@@ -32,6 +33,17 @@ ${IPNAME}_libs: ${OBJECTS}
 
 .PHONY: include
 include: ${IPNAME}_includes
+=======
+INCLUDEFILES=*.h
+LIBSOURCES=$(wildcard *.c)
+OBJECTS=$(addsuffix .o, $(basename $(wildcard *.c)))
+
+libs:
+	echo "Compiling PWM..."
+	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) $(LIBSOURCES)
+	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OBJECTS}
+	make clean
+>>>>>>> Stashed changes
 
 ${IPNAME}_includes:
 	${CP} ${INCLUDEFILES} ${INCLUDEDIR}
