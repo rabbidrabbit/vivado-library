@@ -12,28 +12,7 @@ RELEASEDIR=../../../lib
 INCLUDEDIR=../../../include
 INCLUDES=-I./. -I${INCLUDEDIR}
 
-<<<<<<< Updated upstream
-LIBSOURCES:=*.c
-INCLUDEFILES:=*.h
 
-OBJECTS =	$(addsuffix .o, $(basename $(wildcard *.c)))
-
-IPNAME=PWM_v1_0
-
-libs: banner ${IPNAME}_libs clean
-
-%.o: %.c
-	${COMPILER} $(CC_FLAGS) $(ECC_FLAGS) $(INCLUDES) -o $@ $<
-
-banner:
-	echo "Compiling ${IPNAME}"
-
-${IPNAME}_libs: ${OBJECTS}
-	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OBJECTS}
-
-.PHONY: include
-include: ${IPNAME}_includes
-=======
 INCLUDEFILES=*.h
 LIBSOURCES=$(wildcard *.c)
 OBJECTS=$(addsuffix .o, $(basename $(wildcard *.c)))
@@ -43,7 +22,7 @@ libs:
 	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) $(LIBSOURCES)
 	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OBJECTS}
 	make clean
->>>>>>> Stashed changes
+
 
 ${IPNAME}_includes:
 	${CP} ${INCLUDEFILES} ${INCLUDEDIR}
