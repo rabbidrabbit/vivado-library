@@ -180,7 +180,6 @@ architecture arch_imp of AXI_ZmodDAC1411_v1_0 is
         lAdcSPI_Idle : IN STD_LOGIC;
         sInitDone_n : in std_logic;
         lBufferFull : IN STD_LOGIC;
-        lSetStop : IN STD_LOGIC; 
         lSPI_CmdRxDone : IN STD_LOGIC;
         lSPI_CmdTxDone : IN STD_LOGIC;
         lSPI_CmdTxCount : in STD_LOGIC_VECTOR(6 downto 0);
@@ -277,7 +276,7 @@ signal lSync	:  std_logic_vector(3 downto 0);
 signal lRegRst, lRegRstR, lRegRstPulse, lRegRst_n, sRst_n, xsRst_n, lExtRegRst_n : std_logic;
 signal sDacEn   :  std_logic;
 signal sTransferLength, xsTransferLength, lDinTL, xsDoutTL :  std_logic_vector (kBufferSize-1 downto 0);
-signal lBufferFull, lSetStop : std_logic;
+signal lBufferFull : std_logic;
 signal lAdcSPI_Idle : std_logic;
 signal sOutAddrCntRst, sOutAddrCntRstR, sOutAddrCntRstPulse : std_logic;
 signal sDivRate : std_logic_vector(13 downto 0);
@@ -420,7 +419,6 @@ AXI_ZmodDAC1411_v1_0_S00_AXI_inst : AXI_ZmodDAC1411_v1_0_S00_AXI
         lAdcSPI_Idle => lAdcSPI_Idle,
         sInitDone_n => sInitDone_n,
         lBufferFull => lBufferFull,
-        lSetStop => lSetStop, 
         lSPI_CmdRxDone => lCMD_RX_DONE,
         lSPI_CmdTxDone => lSPI_CmdTxDone,
         lSPI_CmdTxCount => lSPI_CmdTxCount,
