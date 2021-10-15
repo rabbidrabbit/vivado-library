@@ -81,7 +81,7 @@ Warnings
         very easy to use and should provide enough functionality for most use
         cases.
 
-6) Copy the main.cc file into the src folder of your new application project.
+6) Copy the main.cc file and all other files from the "AppSources" folder into the src folder of your new application project.
 
 7) The example project should now build, and you can program your device with
    the newly built program. See the comments inside the demo code to understand
