@@ -343,11 +343,7 @@ ProcSlvReg0: process (AxiLiteClk)  --Control Register
                lSlvReg0(4) <= not lSetStop;
 	      elsif (lSlvRegWrEn = '1' and loc_addr = "00000") then
             if (lAxiWstrb(0) = '1') then
-	            lSlvReg0(7 downto 5) <= lAxiWdata(7 downto 5);
-	            lSlvReg0(3 downto 0) <= lAxiWdata(3 downto 0);
-	            if (lAxiWdata(4) = '1') then
-	                lSlvReg0(4) <= lAxiWdata(4);
-	            end if;
+	            lSlvReg0(7 downto 0) <= lAxiWdata(7 downto 0);
 	        end if; 
             if (lAxiWstrb(1) = '1') then
 	            lSlvReg0(15 downto 8) <= lAxiWdata(15 downto 8);
