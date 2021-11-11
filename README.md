@@ -1,9 +1,11 @@
-Digilent Vivado library
+Digilent Vivado Library
 ==============
 
 Overview
 --------------
 In this repo you may find free-to-use IP cores and interface definitions compatible with Xilinx Vivado IP Catalog.
+
+In addition, you may find scripts that can be used to create systems of IP. These are contained in the hierarchies folder of this repo, and are documented in hierarchies/README.md.
 
 Installation
 --------------

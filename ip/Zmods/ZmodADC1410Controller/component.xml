@@ -1348,7 +1348,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/fifo_generator_0/fifo_generator_0.xci</spirit:name>
+        <spirit:name>src/fifo_generator_adc/fifo_generator_adc.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
@@ -1374,7 +1374,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/fifo_generator_0/fifo_generator_0.xci</spirit:name>
+        <spirit:name>src/fifo_generator_adc/fifo_generator_adc.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>

@@ -154,7 +154,7 @@ Port (
         sDone : out STD_LOGIC);
 end component;
 
-COMPONENT fifo_generator_0
+COMPONENT fifo_generator_adc
   PORT (
     rst : IN STD_LOGIC;
     wr_clk : IN STD_LOGIC;
@@ -1086,7 +1086,7 @@ end process;
 
 -- Data Path FIFOs
 
-InstChAFIFO : fifo_generator_0 --CHA FIFO
+InstChAFIFO : fifo_generator_adc --CHA FIFO
   PORT MAP (
     rst => sInitDoneR_n,
     wr_clk => DcoBufgClk,
@@ -1101,7 +1101,7 @@ InstChAFIFO : fifo_generator_0 --CHA FIFO
     almost_empty => sFIFO_AlmostEmptyChA
   );
 
-InstChBFIFO : fifo_generator_0  --CHB FIFO
+InstChBFIFO : fifo_generator_adc  --CHB FIFO
   PORT MAP (
     rst => sInitDoneR_n,
     wr_clk => DcoBufgClk,
