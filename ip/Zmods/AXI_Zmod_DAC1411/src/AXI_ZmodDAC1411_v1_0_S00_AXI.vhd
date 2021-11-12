@@ -143,7 +143,6 @@ entity AXI_ZmodDAC1411_v1_0_S00_AXI is
         lAdcSPI_Idle      : in std_logic;
         sInitDone_n       : in std_logic;
         lBufferFull       : in std_logic;
-        lSetStop          : in std_logic; 
         lSPI_CmdRxDone    : in std_logic;
         lSPI_CmdTxDone    : in std_logic;
         lSPI_CmdTxCount   : in std_logic_vector(6 downto 0);
@@ -338,17 +337,10 @@ ProcSlvReg0: process (AxiLiteClk)  --Control Register
 	    else
 	      loc_addr := lAxiAwaddrLoc(kAddrLsb + kOptMemAddrBits downto kAddrLsb);
 	      --Access conditions:
-	      --1. Bits 4: processor can only set the bit, while the hardware can only clear it
-	      --2. All other bits R/W access and can only be modified by the processor
-	      if ((lSetStop) = '1' and (lSlvReg0(4) = '1')) then
-               lSlvReg0(4) <= not lSetStop;
-	      elsif (lSlvRegWrEn = '1' and loc_addr = "00000") then
+	      --1. All bits R/W access and can only be modified by the processor
+	      if (lSlvRegWrEn = '1' and loc_addr = "00000") then
             if (lAxiWstrb(0) = '1') then
-	            lSlvReg0(7 downto 5) <= lAxiWdata(7 downto 5);
-	            lSlvReg0(3 downto 0) <= lAxiWdata(3 downto 0);
-	            if (lAxiWdata(4) = '1') then
-	                lSlvReg0(4) <= lAxiWdata(4);
-	            end if;
+	            lSlvReg0(7 downto 0) <= lAxiWdata(7 downto 0);
 	        end if; 
             if (lAxiWstrb(1) = '1') then
 	            lSlvReg0(15 downto 8) <= lAxiWdata(15 downto 8);
