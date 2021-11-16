@@ -46,9 +46,13 @@ if { $board_if ne "Custom"} {
 		PIN10_O out7_O\
 		PIN10_I out7_I\
 		PIN10_T out7_T
-	if {[get_property PARAM_VALUE.USE_PULLUPS] == true && [get_property PARAM_VALUE.Top_Row_Interface] == "I2C"} {
+	if {[get_property PARAM_VALUE.Use_Pullups_Top_Row] == true && [get_property PARAM_VALUE.Top_Row_Interface] == "I2C"} {
 		puts_ipfile $f_xdc {set_property -dict {PULLUP TRUE } [get_ports out2_T]}
 		puts_ipfile $f_xdc {set_property -dict {PULLUP TRUE } [get_ports out3_T]}
+	}
+	if {[get_property PARAM_VALUE.Use_Pullups_Bottom_Row] == true && [get_property PARAM_VALUE.Bottom_Row_Interface] == "I2C"} {
+		puts_ipfile $f_xdc {set_property -dict {PULLUP TRUE } [get_ports out6_T]}
+		puts_ipfile $f_xdc {set_property -dict {PULLUP TRUE } [get_ports out7_T]}
 	}
 }
 close_ipfile $f_xdc
