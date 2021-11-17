@@ -3,7 +3,7 @@
   <spirit:vendor>digilent.com</spirit:vendor>
   <spirit:library>ip</spirit:library>
   <spirit:name>pmod_bridge</spirit:name>
-  <spirit:version>1.2</spirit:version>
+  <spirit:version>1.3</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>Pmod_out</spirit:name>
@@ -218,14 +218,13 @@
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="spi" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="spi_rtl" spirit:version="1.0"/>
       <spirit:mirroredMaster/>
-      <spirit:connectionRequired>true</spirit:connectionRequired>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
             <spirit:name>SCK_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_T</spirit:name>
+            <spirit:name>in_top_spi_sck_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -233,7 +232,7 @@
             <spirit:name>IO1_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_O</spirit:name>
+            <spirit:name>in_top_spi_io1_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -241,7 +240,7 @@
             <spirit:name>SS_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in0_T</spirit:name>
+            <spirit:name>in_top_spi_ss_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -249,7 +248,7 @@
             <spirit:name>IO0_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in1_O</spirit:name>
+            <spirit:name>in_top_spi_io0_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -257,7 +256,7 @@
             <spirit:name>SCK_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_I</spirit:name>
+            <spirit:name>in_top_spi_sck_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -265,7 +264,7 @@
             <spirit:name>SS_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in0_O</spirit:name>
+            <spirit:name>in_top_spi_ss_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -273,7 +272,7 @@
             <spirit:name>IO0_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in1_T</spirit:name>
+            <spirit:name>in_top_spi_io0_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -281,7 +280,7 @@
             <spirit:name>IO1_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_T</spirit:name>
+            <spirit:name>in_top_spi_io1_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -289,7 +288,7 @@
             <spirit:name>SCK_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_O</spirit:name>
+            <spirit:name>in_top_spi_sck_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -297,7 +296,7 @@
             <spirit:name>SS_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in0_I</spirit:name>
+            <spirit:name>in_top_spi_ss_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -305,7 +304,7 @@
             <spirit:name>IO1_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_I</spirit:name>
+            <spirit:name>in_top_spi_io1_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -313,7 +312,7 @@
             <spirit:name>IO0_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in1_I</spirit:name>
+            <spirit:name>in_top_spi_io0_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -326,132 +325,18 @@
       </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>GPIO_Top_Row</spirit:name>
-      <spirit:displayName>GPIO_Top_Row</spirit:displayName>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:mirroredMaster/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_bus_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_bus_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_bus_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:vendorExtensions>
-        <xilinx:busInterfaceInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.GPIO_Top_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:busInterfaceInfo>
-      </spirit:vendorExtensions>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>UART_Bottom_Row</spirit:name>
-      <spirit:displayName>UART_Top_Row</spirit:displayName>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="uart" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="uart_rtl" spirit:version="1.0"/>
-      <spirit:mirroredMaster/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TxD</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in5_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RxD</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in6_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:vendorExtensions>
-        <xilinx:busInterfaceInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:busInterfaceInfo>
-      </spirit:vendorExtensions>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>UART_GPIO_Top_Row</spirit:name>
-      <spirit:displayName>UART_GPIO_Top_Row</spirit:displayName>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:mirroredMaster/>
-      <spirit:connectionRequired>true</spirit:connectionRequired>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_uart_gpio_bus_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_uart_gpio_bus_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_top_uart_gpio_bus_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:vendorExtensions>
-        <xilinx:busInterfaceInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_GPIO_Top_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:busInterfaceInfo>
-      </spirit:vendorExtensions>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>SPI_Bottom_Row</spirit:name>
       <spirit:displayName>SPI_Bottom_Row</spirit:displayName>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="spi" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="spi_rtl" spirit:version="1.0"/>
       <spirit:mirroredMaster/>
-      <spirit:connectionRequired>true</spirit:connectionRequired>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
             <spirit:name>SCK_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_T</spirit:name>
+            <spirit:name>in_bottom_spi_sck_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -459,15 +344,7 @@
             <spirit:name>IO1_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>IO0_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in5_O</spirit:name>
+            <spirit:name>in_bottom_spi_io1_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -475,7 +352,15 @@
             <spirit:name>SS_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in4_T</spirit:name>
+            <spirit:name>in_bottom_spi_ss_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>IO0_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_spi_io0_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -483,7 +368,7 @@
             <spirit:name>SCK_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_I</spirit:name>
+            <spirit:name>in_bottom_spi_sck_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -491,7 +376,7 @@
             <spirit:name>SS_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in4_O</spirit:name>
+            <spirit:name>in_bottom_spi_ss_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -499,7 +384,7 @@
             <spirit:name>IO0_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in5_T</spirit:name>
+            <spirit:name>in_bottom_spi_io0_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -507,7 +392,7 @@
             <spirit:name>IO1_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_T</spirit:name>
+            <spirit:name>in_bottom_spi_io1_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -515,7 +400,7 @@
             <spirit:name>SCK_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_O</spirit:name>
+            <spirit:name>in_bottom_spi_sck_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -523,7 +408,7 @@
             <spirit:name>SS_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in4_I</spirit:name>
+            <spirit:name>in_bottom_spi_ss_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -531,7 +416,7 @@
             <spirit:name>IO1_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_I</spirit:name>
+            <spirit:name>in_bottom_spi_io1_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -539,7 +424,7 @@
             <spirit:name>IO0_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in5_I</spirit:name>
+            <spirit:name>in_bottom_spi_io0_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -547,86 +432,6 @@
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
             <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.SPI_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot;">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:busInterfaceInfo>
-      </spirit:vendorExtensions>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>GPIO_Bottom_Row</spirit:name>
-      <spirit:displayName>GPIO_Bottom_Row</spirit:displayName>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:mirroredMaster/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_bus_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_bus_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_bus_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:vendorExtensions>
-        <xilinx:busInterfaceInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.GPIO_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-          </xilinx:enablement>
-        </xilinx:busInterfaceInfo>
-      </spirit:vendorExtensions>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>UART_GPIO_Bottom_Row</spirit:name>
-      <spirit:displayName>UART_GPIO_Bottom_Row</spirit:displayName>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:mirroredMaster/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_uart_gpio_bus_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_uart_gpio_bus_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_bottom_uart_gpio_bus_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:vendorExtensions>
-        <xilinx:busInterfaceInfo>
-          <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_GPIO_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -643,7 +448,7 @@
             <spirit:name>TxD</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in1_O</spirit:name>
+            <spirit:name>in_top_uart_txd_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -651,7 +456,7 @@
             <spirit:name>RxD</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_I</spirit:name>
+            <spirit:name>in_top_uart_rxd_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -659,6 +464,208 @@
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
             <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_Top_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>UART_Bottom_Row</spirit:name>
+      <spirit:displayName>UART_Bottom_Row</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="uart" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="uart_rtl" spirit:version="1.0"/>
+      <spirit:mirroredMaster/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TxD</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_uart_txd_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RxD</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_uart_rxd_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.UART_BOTTOM_ROW.NUM_READ_OUTSTANDING"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.UART_BOTTOM_ROW.NUM_WRITE_OUTSTANDING"/>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>UART_GPIO_Top_Row</spirit:name>
+      <spirit:displayName>UART_GPIO_Top_Row</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:mirroredMaster/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_uart_gpio_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_uart_gpio_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_uart_gpio_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_GPIO_Top_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>UART_GPIO_Bottom_Row</spirit:name>
+      <spirit:displayName>UART_GPIO_Bottom_Row</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:mirroredMaster/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_uart_gpio_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_uart_gpio_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_uart_gpio_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.UART_GPIO_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>GPIO_Top_Row</spirit:name>
+      <spirit:displayName>GPIO_Top_Row</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:mirroredMaster/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_gpio_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_gpio_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_top_gpio_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.GPIO_Top_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;GPIO&quot;">true</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>GPIO_Bottom_Row</spirit:name>
+      <spirit:displayName>GPIO_Bottom_Row</spirit:displayName>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:mirroredMaster/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_gpio_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_gpio_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>in_bottom_gpio_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.GPIO_Bottom_Row" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;GPIO&quot;">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -675,7 +682,7 @@
             <spirit:name>SCL_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_T</spirit:name>
+            <spirit:name>in_top_i2c_scl_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -683,7 +690,7 @@
             <spirit:name>SDA_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_O</spirit:name>
+            <spirit:name>in_top_i2c_sda_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -691,7 +698,7 @@
             <spirit:name>SDA_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_I</spirit:name>
+            <spirit:name>in_top_i2c_sda_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -699,7 +706,7 @@
             <spirit:name>SDA_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in3_T</spirit:name>
+            <spirit:name>in_top_i2c_sda_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -707,7 +714,7 @@
             <spirit:name>SCL_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_O</spirit:name>
+            <spirit:name>in_top_i2c_scl_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -715,7 +722,7 @@
             <spirit:name>SCL_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in2_I</spirit:name>
+            <spirit:name>in_top_i2c_scl_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -739,7 +746,7 @@
             <spirit:name>SCL_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_T</spirit:name>
+            <spirit:name>in_bottom_i2c_scl_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -747,7 +754,7 @@
             <spirit:name>SDA_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_O</spirit:name>
+            <spirit:name>in_bottom_i2c_sda_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -755,7 +762,7 @@
             <spirit:name>SDA_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_I</spirit:name>
+            <spirit:name>in_bottom_i2c_sda_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -763,7 +770,7 @@
             <spirit:name>SDA_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in7_T</spirit:name>
+            <spirit:name>in_bottom_i2c_sda_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -771,7 +778,7 @@
             <spirit:name>SCL_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_O</spirit:name>
+            <spirit:name>in_bottom_i2c_scl_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -779,7 +786,7 @@
             <spirit:name>SCL_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in6_I</spirit:name>
+            <spirit:name>in_bottom_i2c_scl_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -803,7 +810,7 @@
             <spirit:name>TRI_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_top_i2c_gpio_bus_O</spirit:name>
+            <spirit:name>in_top_i2c_gpio_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -811,7 +818,7 @@
             <spirit:name>TRI_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_top_i2c_gpio_bus_T</spirit:name>
+            <spirit:name>in_top_i2c_gpio_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -819,7 +826,7 @@
             <spirit:name>TRI_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_top_i2c_gpio_bus_I</spirit:name>
+            <spirit:name>in_top_i2c_gpio_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -843,7 +850,7 @@
             <spirit:name>TRI_O</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_bottom_i2c_gpio_bus_O</spirit:name>
+            <spirit:name>in_bottom_i2c_gpio_o</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -851,7 +858,7 @@
             <spirit:name>TRI_T</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_bottom_i2c_gpio_bus_T</spirit:name>
+            <spirit:name>in_bottom_i2c_gpio_t</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -859,7 +866,7 @@
             <spirit:name>TRI_I</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_bottom_i2c_gpio_bus_I</spirit:name>
+            <spirit:name>in_bottom_i2c_gpio_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -886,7 +893,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>35b4f008</spirit:value>
+            <spirit:value>b230b0b8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -902,7 +909,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>50c3d222</spirit:value>
+            <spirit:value>a2e446e3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -951,7 +958,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>in_top_bus_I</spirit:name>
+        <spirit:name>in_top_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -966,16 +973,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_bus_O</spirit:name>
+        <spirit:name>in_top_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -989,20 +989,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_bus_T</spirit:name>
+        <spirit:name>in_top_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1016,20 +1006,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_uart_gpio_bus_I</spirit:name>
+        <spirit:name>in_top_uart_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1044,16 +1024,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_uart_gpio_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_uart_gpio_bus_O</spirit:name>
+        <spirit:name>in_top_uart_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1067,20 +1040,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_uart_gpio_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_uart_gpio_bus_T</spirit:name>
+        <spirit:name>in_top_uart_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1094,20 +1057,36 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_uart_gpio_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_i2c_gpio_bus_I</spirit:name>
+        <spirit:name>in_top_uart_rxd_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_uart_txd_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1122,16 +1101,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_i2c_gpio_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_i2c_gpio_bus_O</spirit:name>
+        <spirit:name>in_top_i2c_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1145,20 +1117,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_i2c_gpio_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_top_i2c_gpio_bus_T</spirit:name>
+        <spirit:name>in_top_i2c_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1172,20 +1134,244 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_top_i2c_gpio_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_bus_I</spirit:name>
+        <spirit:name>in_top_i2c_scl_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_scl_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_scl_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_sda_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_sda_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_i2c_sda_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_ss_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_ss_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_ss_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_sck_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_sck_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_sck_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io0_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io0_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io0_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io1_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io1_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_top_spi_io1_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1200,16 +1386,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_bus_O</spirit:name>
+        <spirit:name>in_bottom_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1223,20 +1402,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_bus_T</spirit:name>
+        <spirit:name>in_bottom_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1250,20 +1419,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;GPIO&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_uart_gpio_bus_I</spirit:name>
+        <spirit:name>in_bottom_uart_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1278,16 +1437,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_uart_gpio_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_uart_gpio_bus_O</spirit:name>
+        <spirit:name>in_bottom_uart_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1301,20 +1453,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_uart_gpio_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_uart_gpio_bus_T</spirit:name>
+        <spirit:name>in_bottom_uart_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1328,20 +1470,36 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_uart_gpio_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_i2c_gpio_bus_I</spirit:name>
+        <spirit:name>in_bottom_uart_rxd_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_uart_txd_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_i2c_gpio_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -1356,16 +1514,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_i2c_gpio_bus_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_i2c_gpio_bus_O</spirit:name>
+        <spirit:name>in_bottom_i2c_gpio_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1379,20 +1530,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_i2c_gpio_bus_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_bottom_i2c_gpio_bus_T</spirit:name>
+        <spirit:name>in_bottom_i2c_gpio_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -1406,20 +1547,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in_bottom_i2c_gpio_bus_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in0_I</spirit:name>
+        <spirit:name>in_bottom_i2c_scl_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1430,16 +1561,35 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in0_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in1_I</spirit:name>
+        <spirit:name>in_bottom_i2c_scl_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_i2c_scl_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_i2c_sda_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1450,16 +1600,35 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in1_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in2_I</spirit:name>
+        <spirit:name>in_bottom_i2c_sda_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_i2c_sda_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_ss_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1470,16 +1639,35 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in2_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in3_I</spirit:name>
+        <spirit:name>in_bottom_spi_ss_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_ss_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_sck_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1490,16 +1678,35 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in3_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in4_I</spirit:name>
+        <spirit:name>in_bottom_spi_sck_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_sck_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_io0_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1510,16 +1717,35 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in4_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in5_I</spirit:name>
+        <spirit:name>in_bottom_spi_io0_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_io0_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>in_bottom_spi_io1_i</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1530,56 +1756,9 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in5_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in6_I</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in6_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in7_I</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in7_I" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in0_O</spirit:name>
+        <spirit:name>in_bottom_spi_io1_o</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1589,20 +1768,10 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in0_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in1_O</spirit:name>
+        <spirit:name>in_bottom_spi_io1_t</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1612,339 +1781,7 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in1_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;UART&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in2_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in2_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in3_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in3_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in4_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in4_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in5_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in5_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;UART&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in6_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in6_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in7_O</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in7_O" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in0_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in0_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in1_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in1_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in2_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in2_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in3_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in3_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Top_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in4_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in4_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in5_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in5_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in6_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in6_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in7_T</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.in7_T" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;SPI&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;None&quot; or spirit:decode(id(&apos;PARAM_VALUE.Bottom_Row_Interface&apos;)) = &quot;I2C&quot;">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>out0_I</spirit:name>
@@ -2269,27 +2106,26 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="string">
         <spirit:name>Top_Row_Interface</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Top_Row_Interface">None</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Top_Row_Interface">GPIO</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="string">
         <spirit:name>Bottom_Row_Interface</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Bottom_Row_Interface">None</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.Bottom_Row_Interface">GPIO</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
-      <spirit:name>choice_list_ac75ef1e</spirit:name>
-      <spirit:enumeration>Custom</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_ca687e60</spirit:name>
+      <spirit:name>choice_list_86027f4b</spirit:name>
       <spirit:enumeration>GPIO</spirit:enumeration>
       <spirit:enumeration>UART</spirit:enumeration>
       <spirit:enumeration>SPI</spirit:enumeration>
       <spirit:enumeration>I2C</spirit:enumeration>
-      <spirit:enumeration>None</spirit:enumeration>
       <spirit:enumeration>Disabled</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_ac75ef1e</spirit:name>
+      <spirit:enumeration>Custom</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
   <spirit:fileSets>
@@ -2305,7 +2141,7 @@
       <spirit:file>
         <spirit:name>src/pmod_concat.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_50c3d222</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a2e446e3</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2321,9 +2157,9 @@
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/pmod_bridge_v1_1.tcl</spirit:name>
+        <spirit:name>xgui/pmod_bridge_v1_3.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_636adf9d</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a324492d</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -2344,7 +2180,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>pmod_bridge_v1_2</spirit:description>
+  <spirit:description>pmod_bridge_v1_3</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -2352,11 +2188,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Top_Row_Interface</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Top_Row_Interface" spirit:choiceRef="choice_list_ca687e60">None</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Top_Row_Interface" spirit:choiceRef="choice_list_86027f4b">GPIO</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Bottom_Row_Interface</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Bottom_Row_Interface" spirit:choiceRef="choice_list_ca687e60">None</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Bottom_Row_Interface" spirit:choiceRef="choice_list_86027f4b">GPIO</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PMOD</spirit:name>
@@ -2419,7 +2255,7 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>Pmod Bridge</xilinx:displayName>
+      <xilinx:displayName>Pmod Bridge v1.3</xilinx:displayName>
       <xilinx:vendorDisplayName>Digilent</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://digilent.com</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
@@ -2427,8 +2263,9 @@
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_concat:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_bridge:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_bridge:1.1</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>digilent.com:ip:pmod_bridge:1.2</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-11-16T20:12:26Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-11-17T00:39:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="natinst.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
         <xilinx:tag xilinx:name="digilentinc.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
@@ -2560,15 +2397,94 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a595f54_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@25139d33_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5aa7f3d0_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@620a7ac3_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5593b00b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67e515cd_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a365c6_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56236f50_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34c5250b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fdc9baf_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cfaf079_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f0a9fc4_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d828665_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6771e062_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54f4b5c1_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3accbf8f_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56402dc8_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11500953_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21953bcf_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@266a36d0_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e96ce94_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@523b3026_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a5f8992_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40d51c1c_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3190fc74_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65920e9a_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ad7f58_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@118740d8_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ac4017f_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b622d8_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49f9f5cb_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@538825f6_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45713783_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@456e83c_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d5b03a4_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6397004e_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b5f5d01_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56c2406a_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fa9db3b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ac36627_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c006244_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5decb3f9_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a9097a5_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6758959_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25a76f8a_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7149b03d_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2efb5bd9_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c677ed8_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c910fa1_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c488a5b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12343247_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22a2c19d_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cde2caf_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@247f769e_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b8e6439_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33d85108_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d09af1c_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6866684e_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3184a735_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62ea47ae_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40e07d63_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7abacdaa_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12415b9c_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5454c36_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@363c9aa2_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21daa14b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bb9f80_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79e6ac88_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65a7e605_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16afb031_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c0243cb_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10572c7f_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e0b8fae_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@499d9cd5_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c7773ee_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37ab813_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53984ec7_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c2bc98a_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32890dc8_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@755dfc56_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fe21c47_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48b0e482_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d41c2959"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e8acdd15"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="84f77f42"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9f3d8178"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="b49e66bf"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="88da132c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="09bfd5ad"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="f43f6e8c"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="fe2ece3e"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="869b523f"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

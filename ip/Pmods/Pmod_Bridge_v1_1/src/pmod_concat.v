@@ -9,239 +9,206 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module pmod_concat
-   (
-   
-    in_top_bus_I,
-    in_top_bus_O,
-    in_top_bus_T,
-    in_top_uart_gpio_bus_I,
-    in_top_uart_gpio_bus_O,
-    in_top_uart_gpio_bus_T,
-    in_top_i2c_gpio_bus_I,
-    in_top_i2c_gpio_bus_O,
-    in_top_i2c_gpio_bus_T,
-    in_bottom_bus_I,
-    in_bottom_bus_O,
-    in_bottom_bus_T,
-    in_bottom_uart_gpio_bus_I,
-    in_bottom_uart_gpio_bus_O,
-    in_bottom_uart_gpio_bus_T,
-    in_bottom_i2c_gpio_bus_I,
-    in_bottom_i2c_gpio_bus_O,
-    in_bottom_i2c_gpio_bus_T,
-    in0_I,
-    in1_I,
-    in2_I,
-    in3_I,
-    in4_I,
-    in5_I,
-    in6_I,
-    in7_I,
-    in0_O,
-    in1_O,
-    in2_O,
-    in3_O,
-    in4_O,
-    in5_O,
-    in6_O,
-    in7_O,
-    in0_T,
-    in1_T,
-    in2_T,
-    in3_T,
-    in4_T,
-    in5_T,
-    in6_T,
-    in7_T,
-    out0_I,
-    out1_I,
-    out2_I,
-    out3_I,
-    out4_I,
-    out5_I,
-    out6_I,
-    out7_I,
-    out0_O,
-    out1_O,
-    out2_O,
-    out3_O,
-    out4_O,
-    out5_O,
-    out6_O,
-    out7_O,
-    out0_T,
-    out1_T,
-    out2_T,
-    out3_T,
-    out4_T,
-    out5_T,
-    out6_T,
-    out7_T);
-    parameter Top_Row_Interface = "None";
-    parameter Bottom_Row_Interface = "None";
+module pmod_concat #(
+    parameter Top_Row_Interface = "None",
+    parameter Bottom_Row_Interface = "None"
+) (
+    output [3:0] in_top_gpio_i,
+    input  [3:0] in_top_gpio_o,
+    input  [3:0] in_top_gpio_t,
     
-    output [3:0] in_top_bus_I;
-    input [3:0] in_top_bus_O;
-    input [3:0] in_top_bus_T;
-    output [1:0] in_top_uart_gpio_bus_I;
-    input [1:0] in_top_uart_gpio_bus_O;
-    input [1:0] in_top_uart_gpio_bus_T;
-    output [1:0] in_top_i2c_gpio_bus_I;
-    input [1:0] in_top_i2c_gpio_bus_O;
-    input [1:0] in_top_i2c_gpio_bus_T;
+    output [1:0] in_top_uart_gpio_i,
+    input  [1:0] in_top_uart_gpio_o,
+    input  [1:0] in_top_uart_gpio_t,
+    output in_top_uart_rxd_i,
+    input  in_top_uart_txd_o,
     
-    output [3:0] in_bottom_bus_I;          
-    input [3:0] in_bottom_bus_O;          
-    input [3:0] in_bottom_bus_T;          
-    output [1:0] in_bottom_uart_gpio_bus_I;
-    input [1:0] in_bottom_uart_gpio_bus_O;
-    input [1:0] in_bottom_uart_gpio_bus_T;
-    output [1:0] in_bottom_i2c_gpio_bus_I;
-    input [1:0] in_bottom_i2c_gpio_bus_O; 
-    input [1:0] in_bottom_i2c_gpio_bus_T; 
+    output [1:0] in_top_i2c_gpio_i,
+    input  [1:0] in_top_i2c_gpio_o,
+    input  [1:0] in_top_i2c_gpio_t,
+    output in_top_i2c_scl_i,
+    input  in_top_i2c_scl_o,
+    input  in_top_i2c_scl_t,
+    output in_top_i2c_sda_i,
+    input  in_top_i2c_sda_o,
+    input  in_top_i2c_sda_t,
     
-  output in0_I;
-  output in1_I;
-  output in2_I;
-  output in3_I;
-  output in4_I;
-  output in5_I;
-  output in6_I;
-  output in7_I;
-  input in0_O;
-  input in1_O;
-  input in2_O;
-  input in3_O;
-  input in4_O;
-  input in5_O;
-  input in6_O;
-  input in7_O;
-  input in0_T;
-  input in1_T;
-  input in2_T;
-  input in3_T;
-  input in4_T;
-  input in5_T;
-  input in6_T;
-  input in7_T;
-  
-  input out0_I;
-  input out1_I;
-  input out2_I;
-  input out3_I;
-  input out4_I;
-  input out5_I;
-  input out6_I;
-  input out7_I;
-  output out0_O;
-  output out1_O;
-  output out2_O;
-  output out3_O;
-  output out4_O;
-  output out5_O;
-  output out6_O;
-  output out7_O;
-  output out0_T;
-  output out1_T;
-  output out2_T;
-  output out3_T;
-  output out4_T;
-  output out5_T;
-  output out6_T;
-  output out7_T;
+    output in_top_spi_ss_i,
+    input  in_top_spi_ss_o,
+    input  in_top_spi_ss_t,
+    output in_top_spi_sck_i,
+    input  in_top_spi_sck_o,
+    input  in_top_spi_sck_t,
+    output in_top_spi_io0_i,
+    input  in_top_spi_io0_o,
+    input  in_top_spi_io0_t,
+    output in_top_spi_io1_i,
+    input  in_top_spi_io1_o,
+    input  in_top_spi_io1_t,
 
-generate
-      case (Top_Row_Interface)
-         "GPIO": begin
-                    assign in_top_bus_I={out3_I,out2_I,out1_I,out0_I};
-                    assign {out3_O,out2_O,out1_O,out0_O}=in_top_bus_O;
-                    assign {out3_T,out2_T,out1_T,out0_T}=in_top_bus_T;
-                  end
-         "UART": begin
-                    assign in_top_uart_gpio_bus_I={out3_I,out0_I};
-                    assign {out3_O,out0_O}=in_top_uart_gpio_bus_O;
-                    assign {out3_T,out0_T}=in_top_uart_gpio_bus_T;
-                    //assign in1_I=out1_I;
-                    assign in2_I=out2_I;
-                    assign out1_O = in1_O;
-                    //assign out2_O = in2_O;
-                    assign out1_T = 0;
-                    assign out2_T = 1;
-                  end
-         "I2C": begin
-                    assign in_top_i2c_gpio_bus_I={out1_I,out0_I};//Input is I2C bus, output is to Pmod Pins
-                    assign {out1_O,out0_O}=in_top_i2c_gpio_bus_O;
-                    assign {out1_T,out0_T}=in_top_i2c_gpio_bus_T;
-                    assign out2_O = in2_O;
-                    assign out3_O = in3_O;
-                    assign out2_T = in2_T;
-                    assign out3_T = in3_T;
-                    assign in2_I = out2_I;
-                    assign in3_I = out3_I;
-                  end
-         default: begin
-                    assign out0_O = in0_O;
-                    assign out1_O = in1_O;
-                    assign out2_O = in2_O;
-                    assign out3_O = in3_O;
-                    assign out0_T = in0_T;
-                    assign out1_T = in1_T;
-                    assign out2_T = in2_T;
-                    assign out3_T = in3_T;
-                    assign in0_I = out0_I;
-                    assign in1_I = out1_I;
-                    assign in2_I = out2_I;
-                    assign in3_I = out3_I;
-                  end
-      endcase
-   endgenerate
-  
-generate
-         case (Bottom_Row_Interface)
-            "GPIO":begin
-                       assign in_bottom_bus_I={out7_I,out6_I,out5_I,out4_I};
-                       assign {out7_O,out6_O,out5_O,out4_O}=in_bottom_bus_O;
-                       assign {out7_T,out6_T,out5_T,out4_T}=in_bottom_bus_T;
-                     end
+    output [3:0] in_bottom_gpio_i,
+    input  [3:0] in_bottom_gpio_o,
+    input  [3:0] in_bottom_gpio_t,
+        
+    output [1:0] in_bottom_uart_gpio_i,
+    input  [1:0] in_bottom_uart_gpio_o,
+    input  [1:0] in_bottom_uart_gpio_t,
+    output in_bottom_uart_rxd_i,
+    input  in_bottom_uart_txd_o,
+    
+    output [1:0] in_bottom_i2c_gpio_i,
+    input  [1:0] in_bottom_i2c_gpio_o,
+    input  [1:0] in_bottom_i2c_gpio_t,
+    output in_bottom_i2c_scl_i,
+    input  in_bottom_i2c_scl_o,
+    input  in_bottom_i2c_scl_t,
+    output in_bottom_i2c_sda_i,
+    input  in_bottom_i2c_sda_o,
+    input  in_bottom_i2c_sda_t,
+
+    output in_bottom_spi_ss_i,
+    input  in_bottom_spi_ss_o,
+    input  in_bottom_spi_ss_t,
+    output in_bottom_spi_sck_i,
+    input  in_bottom_spi_sck_o,
+    input  in_bottom_spi_sck_t,
+    output in_bottom_spi_io0_i,
+    input  in_bottom_spi_io0_o,
+    input  in_bottom_spi_io0_t,
+    output in_bottom_spi_io1_i,
+    input  in_bottom_spi_io1_o,
+    input  in_bottom_spi_io1_t,
+
+    input out0_I,
+    input out1_I,
+    input out2_I,
+    input out3_I,
+    input out4_I,
+    input out5_I,
+    input out6_I,
+    input out7_I,
+    output out0_O,
+    output out1_O,
+    output out2_O,
+    output out3_O,
+    output out4_O,
+    output out5_O,
+    output out6_O,
+    output out7_O,
+    output out0_T,
+    output out1_T,
+    output out2_T,
+    output out3_T,
+    output out4_T,
+    output out5_T,
+    output out6_T,
+    output out7_T
+);
+    generate
+        case (Top_Row_Interface)
+            "GPIO": begin
+                assign in_top_gpio_i = {out3_I,out2_I,out1_I,out0_I};
+                assign {out3_O,out2_O,out1_O,out0_O} = in_top_gpio_o;
+                assign {out3_T,out2_T,out1_T,out0_T} = in_top_gpio_t;
+            end
             "UART": begin
-                       assign in_bottom_uart_gpio_bus_I={out7_I,out4_I};
-                       assign {out7_O,out4_O}=in_bottom_uart_gpio_bus_O;
-                       assign {out7_T,out4_T}=in_bottom_uart_gpio_bus_T;
-                       assign out5_O = in5_O;
-                       assign out6_O = in6_O;
-                       assign out5_T = in5_T;
-                       assign out6_T = in6_T;
-                       assign in5_I = out5_I;
-                       assign in6_I = out6_I;
-                     end
+                assign in_top_uart_gpio_i = {out3_I,out0_I};
+                assign {out3_O,out0_O} = in_top_uart_gpio_o;
+                assign {out3_T,out0_T} = in_top_uart_gpio_t;
+                assign out1_O = in_top_uart_txd_o;
+                assign in_top_uart_rxd_i = out2_I;
+                assign out1_T = 0;
+                assign out2_T = 1;
+            end
             "I2C": begin
-                       assign in_bottom_i2c_gpio_bus_I={out5_I,out4_I};
-                       assign {out5_O,out4_O}=in_bottom_i2c_gpio_bus_O;
-                       assign {out5_T,out4_T}=in_bottom_i2c_gpio_bus_T;
-                       assign out6_O = in6_O;
-                       assign out7_O = in6_O;
-                       assign out6_T = in6_T;
-                       assign out7_T = in7_T;
-                       assign in6_I = out6_I;
-                       assign in7_I = out7_I;
-                     end
+                assign in_top_i2c_gpio_i = {out1_I,out0_I};//Input is I2C bus, output is to Pmod Pins
+                assign {out1_O,out0_O} = in_top_i2c_gpio_o;
+                assign {out1_T,out0_T} = in_top_i2c_gpio_t;
+                assign out2_O = in_top_i2c_scl_o;
+                assign out2_T = in_top_i2c_scl_t;
+                assign in_top_i2c_scl_i = out2_I;
+                assign out3_O = in_top_i2c_sda_o;
+                assign out3_T = in_top_i2c_sda_t;
+                assign in_top_i2c_sda_i = out3_I;
+            end
+            "SPI": begin
+                assign in_top_spi_ss_i = out0_I;
+                assign out0_O = in_top_spi_ss_o;
+                assign out0_T = in_top_spi_ss_t;
+                assign in_top_spi_io1_i = out1_I; // mosi
+                assign out1_O = in_top_spi_io1_o;
+                assign out1_T = in_top_spi_io1_t;
+                assign in_top_spi_io0_i = out2_I; // miso
+                assign out2_O = in_top_spi_io0_o;
+                assign out2_T = in_top_spi_io0_t;
+                assign in_top_spi_sck_i = out3_I;
+                assign out3_O = in_top_spi_sck_o;
+                assign out3_T = in_top_spi_sck_t;
+            end
             default: begin
-                        assign out4_O = in4_O;
-                        assign out5_O = in5_O;
-                        assign out6_O = in6_O;
-                        assign out7_O = in7_O;
-                        assign out4_T = in4_T;
-                        assign out5_T = in5_T;
-                        assign out6_T = in6_T;
-                        assign out7_T = in7_T;
-                        assign in4_I = out4_I;
-                        assign in5_I = out5_I;
-                        assign in6_I = out6_I;
-                        assign in7_I = out7_I;
-                     end
-         endcase
-      endgenerate
-
-
+                assign out0_O = 0;
+                assign out1_O = 0;
+                assign out2_O = 0;
+                assign out3_O = 0;
+                assign out0_T = 1;
+                assign out1_T = 1;
+                assign out2_T = 1;
+                assign out3_T = 1;
+            end
+        endcase
+    endgenerate
+  
+    generate
+        case (Bottom_Row_Interface)
+            "GPIO": begin
+                assign in_bottom_gpio_i = {out7_I,out6_I,out5_I,out4_I};
+                assign {out7_O,out6_O,out5_O,out4_O} = in_bottom_gpio_o;
+                assign {out7_T,out6_T,out5_T,out4_T} = in_bottom_gpio_t;
+            end
+            "UART": begin
+                assign in_bottom_uart_gpio_i = {out7_I,out4_I};
+                assign {out7_O,out4_O} = in_bottom_uart_gpio_o;
+                assign {out7_T,out4_T} = in_bottom_uart_gpio_t;
+                assign out5_O = in_bottom_uart_txd_o;
+                assign in_bottom_uart_rxd_i = out6_I;
+                assign out5_T = 4;
+                assign out6_T = 5;
+            end
+            "I2C": begin
+                assign in_bottom_i2c_gpio_i = {out5_I,out4_I};//Input is i2c bus, output is to Pmod Pins
+                assign {out5_O,out4_O} = in_bottom_i2c_gpio_o;
+                assign {out5_T,out4_T} = in_bottom_i2c_gpio_t;
+                assign out6_O = in_bottom_i2c_scl_o;
+                assign out6_T = in_bottom_i2c_scl_t;
+                assign in_bottom_i2c_scl_i = out6_I;
+                assign out7_O = in_bottom_i2c_sda_o;
+                assign out7_T = in_bottom_i2c_sda_t;
+                assign in_bottom_i2c_sda_i = out7_I;
+            end
+            "SPI": begin
+                assign in_bottom_spi_ss_i = out4_I;
+                assign out4_O = in_bottom_spi_ss_o;
+                assign out4_T = in_bottom_spi_ss_t;
+                assign in_bottom_spi_io0_i = out5_I; // mosi
+                assign out5_O = in_bottom_spi_io1_o;
+                assign out5_T = in_bottom_spi_io1_t;
+                assign in_bottom_spi_io0_i = out6_I; // miso
+                assign out6_O = in_bottom_spi_io0_o;
+                assign out6_T = in_bottom_spi_io0_t;
+                assign in_bottom_spi_sck_i = out7_I;
+                assign out7_O = in_bottom_spi_sck_o;
+                assign out7_T = in_bottom_spi_sck_t;
+            end
+            default: begin
+                assign out4_O = 0;
+                assign out5_O = 0;
+                assign out6_O = 0;
+                assign out7_O = 0;
+                assign out4_T = 1;
+                assign out5_T = 1;
+                assign out6_T = 1;
+                assign out7_T = 1;
+            end
+        endcase
+    endgenerate
 endmodule
