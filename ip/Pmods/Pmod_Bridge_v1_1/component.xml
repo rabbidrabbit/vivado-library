@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>digilent.com</spirit:vendor>
+  <spirit:vendor>digilentinc.com</spirit:vendor>
   <spirit:library>ip</spirit:library>
   <spirit:name>pmod_bridge</spirit:name>
   <spirit:version>1.3</spirit:version>
@@ -2116,16 +2116,16 @@
   </spirit:model>
   <spirit:choices>
     <spirit:choice>
-      <spirit:name>choice_list_86027f4b</spirit:name>
+      <spirit:name>choice_list_ac75ef1e</spirit:name>
+      <spirit:enumeration>Custom</spirit:enumeration>
+    </spirit:choice>
+    <spirit:choice>
+      <spirit:name>choice_list_c243f1cd</spirit:name>
       <spirit:enumeration>GPIO</spirit:enumeration>
       <spirit:enumeration>UART</spirit:enumeration>
       <spirit:enumeration>SPI</spirit:enumeration>
       <spirit:enumeration>I2C</spirit:enumeration>
       <spirit:enumeration>Disabled</spirit:enumeration>
-    </spirit:choice>
-    <spirit:choice>
-      <spirit:name>choice_list_ac75ef1e</spirit:name>
-      <spirit:enumeration>Custom</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
   <spirit:fileSets>
@@ -2188,11 +2188,11 @@
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Top_Row_Interface</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Top_Row_Interface" spirit:choiceRef="choice_list_86027f4b">GPIO</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Top_Row_Interface" spirit:choiceRef="choice_list_c243f1cd">GPIO</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Bottom_Row_Interface</spirit:name>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Bottom_Row_Interface" spirit:choiceRef="choice_list_86027f4b">GPIO</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Bottom_Row_Interface" spirit:choiceRef="choice_list_c243f1cd">GPIO</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>PMOD</spirit:name>
@@ -2255,7 +2255,7 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>Pmod Bridge v1.3</xilinx:displayName>
+      <xilinx:displayName>Pmod Bridge</xilinx:displayName>
       <xilinx:vendorDisplayName>Digilent</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://digilent.com</xilinx:vendorURL>
       <xilinx:coreRevision>1</xilinx:coreRevision>
@@ -2264,8 +2264,9 @@
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_bridge:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_bridge:1.1</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilent.com:ip:pmod_bridge:1.2</xilinx:canUpgradeFrom>
+        <xilinx:canUpgradeFrom>digilent.com:ip:pmod_bridge:1.3</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-11-17T00:39:11Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-02T00:13:17Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="natinst.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
         <xilinx:tag xilinx:name="digilentinc.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
@@ -2476,6 +2477,15 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@755dfc56_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3fe21c47_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@48b0e482_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7821bb4b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7623ed37_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17cfafb0_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f0255cb_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a6910c5_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54e645b6_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c16c279_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@566f2ec9_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71f55f34_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
@@ -2484,7 +2494,7 @@
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="09bfd5ad"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="f43f6e8c"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="fe2ece3e"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="869b523f"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="4c656add"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
