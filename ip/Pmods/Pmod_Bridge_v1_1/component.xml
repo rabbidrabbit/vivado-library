@@ -893,7 +893,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b230b0b8</spirit:value>
+            <spirit:value>36dc6e91</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -909,7 +909,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a2e446e3</spirit:value>
+            <spirit:value>260898ca</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2141,7 +2141,7 @@
       <spirit:file>
         <spirit:name>src/pmod_concat.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a2e446e3</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_260898ca</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
@@ -2152,6 +2152,7 @@
         <spirit:name>src/pmod_concat.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>USED_IN_ipstatic</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2258,7 +2259,7 @@
       <xilinx:displayName>Pmod Bridge</xilinx:displayName>
       <xilinx:vendorDisplayName>Digilent</xilinx:vendorDisplayName>
       <xilinx:vendorURL>https://digilent.com</xilinx:vendorURL>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_concat:1.0</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilentinc.com:ip:pmod_bridge:1.0</xilinx:canUpgradeFrom>
@@ -2266,7 +2267,7 @@
         <xilinx:canUpgradeFrom>digilent.com:ip:pmod_bridge:1.2</xilinx:canUpgradeFrom>
         <xilinx:canUpgradeFrom>digilent.com:ip:pmod_bridge:1.3</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-02T00:13:17Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-02T20:26:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="natinst.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
         <xilinx:tag xilinx:name="digilentinc.com:user:pmod_concat:1.0_ARCHIVE_LOCATION">C:/Tommywork/PMODOLEDRGB/pmodconcat</xilinx:tag>
@@ -2486,12 +2487,28 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@1c16c279_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@566f2ec9_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@71f55f34_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3848deda_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52f310eb_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@435bf110_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b10e2b5_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f2027b7_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c99cf50_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@338fdd71_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@259710a_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@426fe050_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41e4de09_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6914d465_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@438de4a5_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7af62c8e_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4635cb1_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cf1d62b_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@468fe962_ARCHIVE_LOCATION">d:/Github/vivado-library/ip/Pmods/Pmod_Bridge_v1_1</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="88da132c"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="09bfd5ad"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7d1b22e9"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="f43f6e8c"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="fe2ece3e"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="4c656add"/>

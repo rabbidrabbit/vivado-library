@@ -171,8 +171,8 @@ module pmod_concat #(
                 assign {out7_T,out4_T} = in_bottom_uart_gpio_t;
                 assign out5_O = in_bottom_uart_txd_o;
                 assign in_bottom_uart_rxd_i = out6_I;
-                assign out5_T = 4;
-                assign out6_T = 5;
+                assign out5_T = 0;
+                assign out6_T = 1;
             end
             "I2C": begin
                 assign in_bottom_i2c_gpio_i = {out5_I,out4_I};//Input is i2c bus, output is to Pmod Pins
