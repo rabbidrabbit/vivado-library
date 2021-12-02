@@ -10,8 +10,8 @@
 `timescale 1 ps / 1 ps
 
 module pmod_concat #(
-    parameter Top_Row_Interface = "None",
-    parameter Bottom_Row_Interface = "None"
+    parameter Top_Row_Interface = "GPIO",
+    parameter Bottom_Row_Interface = "GPIO"
 ) (
     output [3:0] in_top_gpio_i,
     input  [3:0] in_top_gpio_o,
