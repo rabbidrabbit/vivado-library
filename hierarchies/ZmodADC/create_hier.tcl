@@ -97,7 +97,12 @@ puts $outfile $string
 close $outfile
 close $template
 
-
 set list_temp_constr_files [glob -nocomplain [file join ${tempdir} *]]
 catch { import_files -fileset constrs_1 $list_temp_constr_files }
 file delete -force $tempdir
+
+# add README.txt text to the project as a comment attached to the hierarchy
+set fp [open [file join $script_dir "README.txt"] r]
+set comment_text [read $fp]
+close $fp
+set_property USER_COMMENTS.readme $comment_text [get_bd_cells $nameHier/ZmodADC1410_Controll_1]
