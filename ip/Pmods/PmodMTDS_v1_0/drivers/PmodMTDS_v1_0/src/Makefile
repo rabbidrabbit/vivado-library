@@ -8,35 +8,36 @@ LIB=libxil.a
 CC_FLAGS = $(COMPILER_FLAGS)
 ECC_FLAGS = $(EXTRA_COMPILER_FLAGS)
 
-RELEASEDIR=../../../lib
-INCLUDEDIR=../../../include
+RELEASEDIR=../../../lib/
+INCLUDEDIR=../../../include/
 INCLUDES=-I./. -I${INCLUDEDIR}
 
-OUTS = *.o
+SRCFILES := $(wildcard *.c) $(wildcard *.cpp)
 
-LIBSOURCES:=*.c
-INCLUDEFILES:=*.h
+OBJECTS = $(addprefix $(RELEASEDIR), $(addsuffix .o, $(basename $(wildcard *.c))))
+OBJECTS += $(addprefix $(RELEASEDIR), $(addsuffix .o, $(basename $(wildcard *.cpp) )))
 
-OBJECTS =	$(addsuffix .o, $(basename $(wildcard *.c)))
+DEPFILES := $(patsubst %.c,$(RELEASEDIR)%.d,$(SRCFILES))
+DEPFILES := $(patsubst %.cpp,$(RELEASEDIR)%.d,$(DEPFILES))
 
-IPNAME=PmodMTDS
+libs: $(OBJECTS)
 
-libs: banner ${IPNAME}_libs clean
+include $(wildcard $(DEPFILES))
 
-%.o: %.c
-	${COMPILER} $(CC_FLAGS) $(ECC_FLAGS) $(INCLUDES) -o $@ $<
+include $(wildcard ../../../../dep.mk)
 
-banner:
-	echo "Compiling ${IPNAME}"
+$(RELEASEDIR)%.o: %.c
+	${COMPILER} $(CC_FLAGS) $(ECC_FLAGS) $(INCLUDES) $(DEPENDENCY_FLAGS) $< -o $@
 
-${IPNAME}_libs: ${OBJECTS}
-	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OBJECTS}
+$(RELEASEDIR)%.o: %.cpp
+	${COMPILER} $(CC_FLAGS) $(ECC_FLAGS) $(INCLUDES) $(DEPENDENCY_FLAGS) $< -o $@
 
 .PHONY: include
-include: ${IPNAME}_includes
+include: $(addprefix $(INCLUDEDIR),$(wildcard *.h))
 
-${IPNAME}_includes:
-	${CP} ${INCLUDEFILES} ${INCLUDEDIR}
+$(INCLUDEDIR)%.h: %.h
+	$(CP) $< $@
 
 clean:
 	rm -rf ${OBJECTS}
+	rm -rf $(DEPFILES)
